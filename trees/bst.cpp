@@ -107,14 +107,16 @@ void delete_node(int value)
         else
             curr_node = curr_node->left;
     }
-    // when bst is empty
+    // when node to be deleted does not exist
     if (curr_node == NULL)
         return;
-    
+
     // when node to be deleted is a leaf node (has no child)
     if (curr_node->left==NULL && curr_node->right==NULL)
     {
-        if (prev_node->left == curr_node)
+        if (prev_node == curr_node)
+            root = NULL;
+        else if (prev_node->left == curr_node)
             prev_node->left = NULL;
         else
             prev_node->right = NULL;
@@ -129,7 +131,7 @@ void delete_node(int value)
         else
             child = curr_node->left;
 
-        if (prev_node == NULL)
+        if (prev_node == curr_node)
             root = child;
         else if (prev_node->left == curr_node)
             prev_node->left = child;
@@ -160,7 +162,7 @@ void delete_node(int value)
 int main(void)
 {
     int x;
-    for (int i = 1; i <= 11; i++)
+    for (int i = 1; i <= 3; i++)
     {
         cin >> x;
         BST_build(x);
