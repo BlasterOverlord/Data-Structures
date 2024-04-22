@@ -64,7 +64,11 @@ int main(void)
         cout << endl;
     }
 
-    DFS(1);
+    for (int i = 1; i <= n; i++)
+    {
+        if (color[i] == "white")
+            DFS(i);
+    }
 
     for (int i = 1; i <= n; i++)
     {

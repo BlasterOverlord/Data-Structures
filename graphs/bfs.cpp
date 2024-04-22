@@ -76,11 +76,15 @@ int main(void)
         cout << endl;
     }
 
-    BFS(1);
+    for (int i = 1; i <= n; i++)
+    {
+        if (level[i] == -1)
+            BFS(i);
+    }
 
     for (int i = 1; i <= n; i++)
     {
-        cout << i << "=" << level[i] << endl;
+        cout << i << " = " << level[i] << endl;
     }
 
     //path(5);
